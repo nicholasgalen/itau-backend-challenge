@@ -1,6 +1,5 @@
 package com.desafio.itau.models.dto;
 
-import com.desafio.itau.models.Transaction;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
@@ -35,7 +34,7 @@ public class TransactionDTO {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Transaction that)) return false;
+        if (!(o instanceof TransactionDTO that)) return false;
         return Double.compare(getValor(), that.getValor()) == 0 && Objects.equals(getDataHora(), that.getDataHora());
     }
 
