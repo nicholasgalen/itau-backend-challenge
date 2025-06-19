@@ -9,14 +9,20 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/transacao")
 public class TransactionController {
     @Autowired
     private TransactionService service;
 
-    @PostMapping("/transacao")
+    @PostMapping
     public ResponseEntity<?> createTransaction(@RequestBody @Valid TransactionDTO transacao){
 
         service.create(transacao);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @DeleteMapping
+    public void delete(){
+        service.delete();
     }
 }
