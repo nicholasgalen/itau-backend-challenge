@@ -3,7 +3,7 @@ package com.desafio.itau.models;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-public class transaction {
+public class Transaction {
     private double valor;
     private OffsetDateTime dataHora;
 
@@ -25,7 +25,7 @@ public class transaction {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof transaction that)) return false;
+        if (!(o instanceof Transaction that)) return false;
         return Double.compare(getValor(), that.getValor()) == 0 && Objects.equals(getDataHora(), that.getDataHora());
     }
 
