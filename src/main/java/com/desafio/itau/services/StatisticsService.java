@@ -13,18 +13,24 @@ public class StatisticsService{
 
     static final private Logger logger = LoggerFactory.getLogger(StatisticsService.class);
 
-    public StatisticsDTO getStats(){
-
+    public StatisticsDTO getStats() {
         logger.info("Getting transaction stats...");
         DoubleSummaryStatistics stats = TransactionService.transactions.stream()
-                .mapToDouble(TransactionDTO::getValor).summaryStatistics();
+                .mapToDouble(TransactionDTO::getValor)
+                .summaryStatistics();
+
+        long count = stats.getCount();
+        double sum = stats.getSum();
+        double avg = count == 0 ? 0 : stats.getAverage();
+        double min = count == 0 ? 0 : stats.getMin();
+        double max = count == 0 ? 0 : stats.getMax();
 
         return new StatisticsDTO(
-                stats.getCount(),
-                stats.getSum(),
-                stats.getAverage(),
-                stats.getMin(),
-                stats.getMax()
+                count,
+                sum,
+                avg,
+                min,
+                max
         );
     }
 }

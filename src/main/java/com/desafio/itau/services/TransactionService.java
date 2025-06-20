@@ -18,7 +18,7 @@ public class TransactionService {
 
     static final private Logger logger = LoggerFactory.getLogger(TransactionService.class);
 
-    public void create(TransactionDTO transacao){
+    public static void create(TransactionDTO transacao){
 
         logger.info("Add transaction method called.");
         transactions.add(transacao);
@@ -44,8 +44,18 @@ public class TransactionService {
         }, 0, 60_000);
     }
 
+    // Getters for tests
     public void cleanOldTransactions(){
 
         transactions.clear();
     }
+
+    public static int getTransactionCount() {
+        return transactions.size();
+    }
+
+    public static void clearTransactions() {
+        transactions.clear();
+    }
+
 }
