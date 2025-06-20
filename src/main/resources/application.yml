@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: aula
+logging:
+  level:
+    root: INFO
+    com.desafio.itau: DEBUG
