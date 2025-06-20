@@ -5,3 +5,8 @@ logging:
   level:
     root: INFO
     com.desafio.itau: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
