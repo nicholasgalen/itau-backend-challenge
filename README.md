@@ -65,7 +65,8 @@ This endpoint receives transactions. Each transaction consists of a valor (amoun
 
 ```json
 {
-  "valor": 123.45,      "dataHora": "2020-08-07T12:34:56.789-03:00"
+    "valor": 123.45,
+    "dataHora": "2020-08-07T12:34:56.789-03:00"
 }
 ```
 
